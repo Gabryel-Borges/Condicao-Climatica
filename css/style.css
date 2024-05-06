@@ -1,0 +1,108 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #03B1FA, #00A0F8, #0178DE, #0055C9);
+    height: 100vh;
+    width: 100vw;
+    color: #f4efef;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.hide {
+    display: none !important;
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 450px;
+    height: 500px;
+    background-color: #0055C9;
+    border-radius: 20px;
+    
+}
+
+h3 {
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#input-city {
+    width: 200px;
+    height: 30px;
+    border: 0px;
+    border-radius: 8px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+#btSearch {
+    width: 40px;
+    height: 40px;
+    border: 0px;
+    border-radius: 10px;
+}
+
+.city-data {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 250px;
+    margin: 5px;
+}
+
+#name-city {
+    margin-left: 5px;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+#flag {
+    width: 40px;
+}
+
+
+.weather-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.weather-main h2 {
+    font-size: 3em;
+    font-weight: 300;
+}
+
+.weather-secondary {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 250px;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
