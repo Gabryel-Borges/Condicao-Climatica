@@ -63,6 +63,21 @@ h3 {
     border-radius: 10px;
 }
 
+.location {
+    width: 250px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin: 5px;
+}
+
+#location-current {
+    font-size: 0.8em;
+    color: #00a4fd;
+    cursor: pointer;
+}
+    
+
 .city-data {
     display: flex;
     justify-content: flex-start;

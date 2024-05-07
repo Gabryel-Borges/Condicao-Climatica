@@ -5,6 +5,7 @@ const icon = "https://openweathermap.org/img/wn/" // ícone da condição climá
 const containerMain = document.querySelector(".container")
 const inputCity = document.querySelector("#input-city")
 const btSearch = document.querySelector("#btSearch")
+const locationCurrent = document.querySelector("#location-current")
 const containerCity = document.querySelector("div.city-data")
 const containerWeather = document.querySelector("div.weather-data")
 const nameCity = document.querySelector("#name-city")
@@ -17,8 +18,16 @@ const wind = document.querySelector("#wind")
 const msgError = document.createElement("span")
 
 
-async function getWeatherData(city) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`
+async function getWeatherData(city = '', lat = '', lon = '') {
+    let url
+
+    if (lat != '' && lon != '') { // requisição a api via coordenadas geográficas
+        url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}&lang=pt_br`
+    }
+    else { // requisição a api via nome da cidade
+        url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`
+        
+    }
 
     const response = await fetch(url)
 
@@ -27,9 +36,9 @@ async function getWeatherData(city) {
     return data
 }
 
-async function showWeatherData(city) {
+async function showWeatherData(city, lat, lon) {
 
-    const data = await getWeatherData(city)
+    const data = await getWeatherData(city, lat, lon)
 
     if (data.cod === "404") {
         containerMain.appendChild(msgError) // adiciona a mensagem de cidade não encontrada ao conteiner principal
@@ -66,4 +75,13 @@ inputCity.addEventListener("keydown", (evt) => {
     if (evt.code == "Enter") {
         showWeatherData(inputCity.value)
     }
+})
+
+locationCurrent.addEventListener("click", ()=> {
+    navigator.geolocation.getCurrentPosition((pos) => { // obtem as coordenadas geográficas
+        const lat = pos.coords.latitude
+        const lon = pos.coords.longitude
+
+        showWeatherData( '', lat, lon) // faz a chamada a função passando as coordenadas, ao invés do nome da cidade
+    })
 })
