@@ -1,4 +1,4 @@
-const apiKey = "6670fd2307d2f29066fee34825a3d554"
+const apiKey = "insira sua api key da openweathermap"
 const apiFlag = "https://flagsapi.com/" // bandeira do país
 const icon = "https://openweathermap.org/img/wn/" // ícone da condição climática
 
